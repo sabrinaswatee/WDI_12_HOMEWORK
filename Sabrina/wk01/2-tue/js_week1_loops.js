@@ -22,7 +22,7 @@ for (var no = 1; no <= top_choices.length; no++) {
   console.log("My " + suffix[no - 1] + " choice is " + top_choices[no - 1]);
 }
 
-//js-day-else-if
+//js-day2-else-if
 
 var d = new Date();
 var currentYear = d.getFullYear();
