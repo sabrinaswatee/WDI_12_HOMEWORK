@@ -17,9 +17,9 @@ for (var i = 1; i <= 10; i++) {
 // Your top choices
 
 var top_choices = ['Blue', 'Green', 'Beige'];
-var suffix = ['1st', '2nd', '3rd'];
+var suffix = ['st', 'nd', 'rd'];
 for (var no = 1; no <= top_choices.length; no++) {
-  console.log("My " + suffix[no - 1] + " choice is " + top_choices[no - 1]);
+  console.log("My " + no + suffix[no - 1] + " choice is " + top_choices[no - 1]);
 }
 
 //js-day2-else-if
