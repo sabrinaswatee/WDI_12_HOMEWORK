@@ -1,5 +1,8 @@
 // Melbourne Public Transport Journey Planner
 
+/*
+Array of Objects on train lines
+*/
 var trainLines = [
   {
     name: 'Alamein',
@@ -16,6 +19,20 @@ var trainLines = [
 ]
 
 /*
+Prompt user to select OK or Cancel for "Start Melbourne Public Transport Journey Planner"??
+OK - call function to input origin and destinantion??
+Cancel - end program??
+*/
+
+/*
+Prompts user input for origin and destination and calls function
+Iterates if user inputs anything other than station names??
+*/
+var origin = prompt("What's your origin?");
+var destination = prompt("What's your destination?");
+travelPlanner (origin, destination);
+
+/*
 Prints out origin and destination
 Sends the origin, destination to travelMerged in on different line
 Sends the origin, destination and line number to findIndexUnmerged if on same line
@@ -23,14 +40,14 @@ Sends the origin, destination and line number to findIndexUnmerged if on same li
 var travelPlanner = function (origin, destination) {
   console.log ('Origin: ' + origin + '\n' + 'Destination: ' + destination);
   for (var line = 0; line < trainLines.length; line++) {
-    for (counter = line; counter < trainLines.length; counter++) {
-      var lineString = trainLines[counter].stations.toString();
+      var lineString = trainLines[line].stations.toString();
       if (lineString.includes(origin) && lineString.includes(destination)) {
-        findIndexUnmerged (origin, destination, counter);
+        var boolean = true;
+        findIndexUnmerged (origin, destination, line);
       }
-    }
+  }
+  if (!boolean) {
     travelMerged (origin, destination);
-    break;
   }
 }
 
@@ -108,12 +125,11 @@ var mergedRoute = function (beginning, ending, interchangeOne, interchangeTwo, s
   else {
     var routeOne = backwardRoute (interchangeOne, beginning, startLine);
   }
-
   if (ending - interchangeTwo >= 0) {
     var routeTwo = forwardRoute (interchangeTwo + 1, ending, endLine);
   }
   else {
-    var routeTwo = backwardRoute (ending + 1, interchangeTwo, endLine);
+    var routeTwo = backwardRoute (ending, interchangeTwo - 1, endLine);
   }
   console.log (routeOne.concat(' -----> '.concat(routeTwo)));
   mergedStops (beginning, ending, interchangeOne, interchangeTwo);
@@ -139,12 +155,5 @@ var mergedStops = function (start, stop, changeOne, changeTwo) {
   var stopsTwo = Math.abs(changeTwo - stop);
   console.log ((stopsOne + stopsTwo) + ' stops total');
 }
-
-/*
-Prompts user input for origin and destination and calls function
-*/
-var origin = prompt("What's your origin?");
-var destination = prompt("What's your destination?");
-travelPlanner (origin, destination);
 
 //
