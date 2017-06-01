@@ -29,6 +29,7 @@ var brain = {
   energyLevel: 10
 }
 var energy = brain.energyLevel;
+brain.dream = 'electric sheep';
 
 //
 // JS Functions
@@ -36,6 +37,6 @@ var energy = brain.energyLevel;
 var rectangleArea = function (length, width) {
   return length * width;
 }
-rectangleArea (3, 4);
+var area = rectangleArea (3, 4);
 
 //
