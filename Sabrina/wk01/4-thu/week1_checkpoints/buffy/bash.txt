@@ -1,0 +1,19 @@
+Bash (Terminal)
+
+Assume your present working directory is $ ~/buffy
+
+Make two directories inside ~/buffy: scoobies and vamps 
+mkdir scoobies
+mkdir vamps
+
+
+Make files in scoobies named buffy.txt, giles.txt and angel.txt 
+cd scoobies
+touch buffy.txt giles.txt angel.txt
+
+
+Copy angel.txt into the vamps directory 
+cp angel.txt ../vamps
+
+Delete the vamps directory and everything inside it 
+rm -r vamps
