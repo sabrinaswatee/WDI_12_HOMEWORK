@@ -19,18 +19,9 @@ var trainLines = [
 ]
 
 /*
-Prompt user to select OK or Cancel for "Start Melbourne Public Transport Journey Planner"??
-OK - call function to input origin and destinantion??
-Cancel - end program??
+Starting the journey planner
 */
-
-/*
-Prompts user input for origin and destination and calls function
-Iterates if user inputs anything other than station names??
-*/
-var origin = prompt("What's your origin?");
-var destination = prompt("What's your destination?");
-travelPlanner (origin, destination);
+alert ('Melbourne Public Transport Journey Planner');
 
 /*
 Prints out origin and destination
@@ -155,5 +146,13 @@ var mergedStops = function (start, stop, changeOne, changeTwo) {
   var stopsTwo = Math.abs(changeTwo - stop);
   console.log ((stopsOne + stopsTwo) + ' stops total');
 }
+
+/*
+Prompts user input for origin and destination and calls function
+?? Iterates if user inputs anything other than station names ??
+*/
+var origin = prompt("What's your origin?");
+var destination = prompt("What's your destination?");
+travelPlanner (origin, destination);
 
 //
