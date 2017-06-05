@@ -92,7 +92,6 @@ var findIndexUnmerged = function (origin, destination, line) {
   }
   var stop = stops (beginning, ending);
   console.log (route + '\n' + stop);
-  // alert ('Thank you for using the service!');
 }
 
 /*
