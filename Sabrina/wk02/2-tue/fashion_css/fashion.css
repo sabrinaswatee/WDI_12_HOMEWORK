@@ -42,6 +42,7 @@ p > span {
   font-size: 55px;
   float: left;
   color: grey;
+  padding-right: 10px;
 }
 
 aside > ul {
