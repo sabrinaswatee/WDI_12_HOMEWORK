@@ -1,0 +1,67 @@
+body {
+  width: 600px;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+}
+
+img {
+  margin-top: 2%;
+  width: 30%;
+  height: 30%;
+}
+
+h1 {
+  margin: 2% auto;
+  font-size: 250%;
+  /*font-family: fantasy;*/
+}
+
+main {
+  margin: 0 auto;
+}
+
+div {
+  text-align: center;
+  margin: 0;
+  display: inline-block;
+  border: 2px solid grey;
+  padding-bottom: 20px;
+}
+
+input {
+  text-align: center;
+}
+
+button {
+  margin: 5px;
+}
+
+footer {
+  text-align: center;
+  clear: both;
+}
+
+footer > h3 {
+  padding: 15px;
+}
+
+#savings {
+  width: 48%;
+  float: left;
+}
+
+#cheques {
+  width: 48%;
+  float: right;
+}
+
+#message {
+  margin: 0 au
+}
+
+#balanceSavings, #balanceCheques {
+  color: grey;
+}
