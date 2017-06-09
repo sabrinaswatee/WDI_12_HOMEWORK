@@ -62,6 +62,12 @@ footer > h3 {
   margin: 0 au
 }
 
-#balanceSavings, #balanceCheques {
+.color {
+  background-color: red;
+  color: white;
+}
+
+.undoColor {
+  background-color: white;
   color: grey;
 }

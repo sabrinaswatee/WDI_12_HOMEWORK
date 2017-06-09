@@ -16,117 +16,129 @@ Specification:
 */
 
 var savings = {
-  balance: document.querySelector ('#balanceSavings'),
-  input: document.querySelector ('#inputSavings'),
-  withdraw: document.querySelector ('#withdrawSavings'),
-  deposit: document.querySelector ('#depositSavings'),
+    balance: document.querySelector ('#balanceSavings'),
+    input: document.querySelector ('#inputSavings'),
+    withdraw: document.querySelector ('#withdrawSavings'),
+    deposit: document.querySelector ('#depositSavings'),
 };
 var cheques = {
-  balance: document.querySelector ('#balanceCheques'),
-  input: document.querySelector ('#inputCheques'),
-  withdraw: document.querySelector ('#withdrawCheques'),
-  deposit: document.querySelector ('#depositCheques')
+    balance: document.querySelector ('#balanceCheques'),
+    input: document.querySelector ('#inputCheques'),
+    withdraw: document.querySelector ('#withdrawCheques'),
+    deposit: document.querySelector ('#depositCheques')
 };
 var message = document.querySelector ('#message');
 var newInput = 0;
 
-// var balanceColor = function (amount, account) {
-//   if ('account'.balance.textContent == amount) {
-//     'account'.balance.style.backgroundColor = 'red';
-//     'account'.balance.style.color = 'white';
-//   }
-//   else {
-//     account.balance.style.backgroundColor = 'white';
-//     account.balance.style.color = 'grey';
-//   }
-// }
+var balanceColor = function () {
+  if (savings.balance.textContent == '00.00') {
+    savings.balance.className = 'color';
+  }
+  else {
+    savings.balance.className = 'undoColor';
+  }
+
+  if (cheques.balance.textContent == '00.00') {
+    cheques.balance.className = 'color';
+  }
+  else {
+    cheques.balance.className = 'undoColor';
+  }
+}
 
 var depositSavings = function () {
   var savingsNoDecimal = 0;
-  savingsNoDecimal = Number (savings.balance.textContent) + Number (savings.input.value);
-  savings.balance.textContent = parseFloat(savingsNoDecimal).toFixed(2);
-  savings.input.value = '';
+  if (Math.sign (Number (savings.input.value)) == -1) {
+    savings.input.value = '';
+  }
+  else {
+    savingsNoDecimal = Number (savings.balance.textContent) + Number (savings.input.value);
+    savings.balance.textContent = parseFloat(savingsNoDecimal).toFixed(2);
+    savings.input.value = '';
+  }
   // message.textContent = "Thank You for Using This Service";
+  balanceColor ();
 }
 
 var depositCheques = function () {
   var chequesNoDecimal = 0;
-  chequesNoDecimal = Number (cheques.balance.textContent) + Number (cheques.input.value);
-  cheques.balance.textContent = parseFloat(chequesNoDecimal).toFixed(2);
-  cheques.input.value = '';
+  if (Math.sign (Number (cheques.input.value)) == -1) {
+    cheques.input.value = '';
+  }
+  else {
+    chequesNoDecimal = Number (cheques.balance.textContent) + Number (cheques.input.value);
+    cheques.balance.textContent = parseFloat(chequesNoDecimal).toFixed(2);
+    cheques.input.value = '';
+  }
   // message.textContent = "Thank You for Using This Service";
+  balanceColor ();
 }
 
 var withdrawSavings = function () {
   var totalBalance = Number (savings.balance.textContent) + Number (cheques.balance.textContent);
   savingsNoDecimal = Number (savings.balance.textContent) - Number (savings.input.value);
 
-  if (Number (savings.balance.textContent) > Number (savings.input.value)) {
+  if (Math.sign (Number (savings.input.value)) == -1) {
+    cheques.input.value = '';
+  }
+  else if (Number (savings.balance.textContent) > Number (savings.input.value)) {
     savings.balance.textContent = parseFloat(savingsNoDecimal).toFixed(2);
   }
   else if (Number (savings.balance.textContent) == Number (savings.input.value)) {
     savings.balance.textContent = '00.00';
-    // savings.balance.style.backgroundColor = 'red';
-    // savings.balance.style.color = 'white';
   }
   else if (totalBalance < Number (savings.input.value)) {
     message.textContent = "Insufficient Balance";
   }
   else {
     newInput = Number (savings.input.value) - Number (savings.balance.textContent);
-    savings.balance.textContent = "00.00";
-    // savings.balance.style.backgroundColor = 'red';
-    // savings.balance.style.color = 'white';
-    cheques.balance.textContent = parseFloat(Number (cheques.balance.textContent) - newInput).toFixed(2);
+    savings.balance.textContent = '00.00';
+    var output = parseFloat(Number (cheques.balance.textContent) - newInput).toFixed(2);
+    if (output == '0.00') {
+      cheques.balance.textContent = '0' + output;
+    }
+    else {
+      cheques.balance.textContent = output;
+    }
   }
-
-  if (savings.balance.textContent == '00.00') {
-    savings.balance.style.backgroundColor = 'red';
-    savings.balance.style.color = 'white';
-  }
-  else {
-    savings.balance.style.backgroundColor = 'white';
-    savings.balance.style.color = 'grey';
-  }
-  // balanceColor (savings.balance.textContent, savings);
+  savings.input.value = '';
   // message.textContent = "Thank You for Using This Service";
+  balanceColor ();
 }
 
 var withdrawCheques = function () {
   var totalBalance = Number (cheques.balance.textContent) + Number (savings.balance.textContent);
   chequesNoDecimal = Number (cheques.balance.textContent) - Number (cheques.input.value);
 
-  if (Number (cheques.balance.textContent) > Number (cheques.input.value)) {
+  if (Math.sign (Number (cheques.input.value)) == -1) {
+    cheques.input.value = '';
+  }
+  else if (Number (cheques.balance.textContent) > Number (cheques.input.value)) {
     cheques.balance.textContent = parseFloat(chequesNoDecimal).toFixed(2);
   }
   else if (Number (cheques.balance.textContent) == Number (cheques.input.value)) {
     cheques.balance.textContent = '00.00';
-    // cheques.balance.style.backgroundColor = 'red';
-    // cheques.balance.style.color = 'white';
   }
   else if (totalBalance < Number (cheques.input.value)) {
     message.textContent = "Insufficient Balance";
   }
   else {
     newInput =  Number (cheques.input.value) - Number (cheques.balance.textContent);
-    cheques.balance.textContent = "00.00";
-    // cheques.balance.style.backgroundColor = 'red';
-    // cheques.balance.style.color = 'white';
-    balanceSavings.textContent = parseFloat(Number (balanceSavings.textContent) - newInput).toFixed(2);
+    cheques.balance.textContent = '00.00';
+    var output = parseFloat(Number (savings.balance.textContent) - newInput).toFixed(2);
+    if (output == '0.00') {
+      savings.balance.textContent = '0' + output;
+    }
+    else {
+      savings.balance.textContent = output;
+    }
   }
-
-  if (cheques.balance.textContent == '00.00') {
-    cheques.balance.style.backgroundColor = 'red';
-    cheques.balance.style.color = 'white';
-  }
-  else {
-    cheques.balance.style.backgroundColor = 'white';
-    cheques.balance.style.color = 'grey';
-  }
-  // balanceColor (balanceCheques.textContent, cheques);
+  cheques.input.value = '';
   // message.textContent = "Thank You for Using This Service";
+  balanceColor ();
 }
 
+balanceColor ();
 savings.withdraw.addEventListener ('click', withdrawSavings);
 savings.deposit.addEventListener ('click', depositSavings);
 cheques.withdraw.addEventListener ('click', withdrawCheques);
