@@ -1,0 +1,78 @@
+body {
+  box-sizing: border-box;
+  width: 535px;
+  margin: 0 auto;
+}
+
+nav {
+  text-align: left;
+  font-family: 'Permanent Marker', cursive;
+}
+
+h1 {
+  display: inline-block;
+  vertical-align: top;
+}
+
+h1:nth-child(2) {
+  margin-left: 158px;
+}
+
+main {
+  background-color: #abd0d5;
+  margin-top: 30px;
+  text-align: center;
+  height: 535px;
+
+}
+
+div {
+  background-color: #abd0d5;
+  border-bottom: 10px solid #5cb1bc;
+  border-right: 10px solid #5cb1bc;
+  height: 150px;
+  width: 150px;
+  display: inline-block;
+  color: grey;
+  font-weight: bold;
+  font-size: 30px;
+  padding: 10px;
+  vertical-align: top;
+  font-family: 'Pangolin', cursive;
+}
+
+div:nth-child(3) , div:nth-child(7), div:nth-child(11) {
+  border-right: 5px solid #abd0d5;
+}
+
+div:nth-child(9) , div:nth-child(10), div:nth-child(11) {
+  border-bottom: 5px solid #abd0d5;
+}
+
+footer {
+  clear: both;
+  padding: 10px;
+  text-align: center;
+}
+
+button {
+  padding: 10px;
+  font-size: 20px;
+  margin: 10px;
+}
+
+.playing {
+  background-color: grey;
+}
+
+.notPlaying {
+  background-color: white;
+}
+
+.color {
+  background-color: grey;
+}
+
+.disColor {
+  background-color: #abd0d5;
+}
