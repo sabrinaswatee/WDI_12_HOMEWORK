@@ -7,9 +7,13 @@
     <link href="https://fonts.googleapis.com/css?family=Pangolin|Permanent+Marker" rel="stylesheet">
   </head>
   <body>
+    <header>
+      <h1>The Tic Tac Toe Game</h1>
+    </header>
+
     <nav>
       <h1><span id="player1"><span id="user1">Player 1</span>: X</span><br><span id="player2"><span id="user2">Player 2</span>: O</span></h1>
-      <h1>Win Counter - <span id="countX">0</span> : <span id="countY">0</span><br>Timer: <span id="timer">0</span></h1>
+      <h1>Game Counter - <span id="countGame">0</span><br>Win Counter - <span id="countX">0</span> : <span id="countY">0</span><br>Timer - <span id="timer"></span></h1>
     </nav>
 
     <main>
@@ -26,8 +30,8 @@
 
     <footer>
       <button>Start</button>
-      <button>Timed</button>
       <button>Pause</button>
+      <button>Timed</button>
       <button>Reset</button>
     </footer>
     <script src="the_game.js"></script>

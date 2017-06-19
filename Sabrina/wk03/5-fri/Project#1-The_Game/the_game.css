@@ -1,12 +1,20 @@
 body {
   box-sizing: border-box;
-  width: 535px;
+  width: 700px;
   margin: 0 auto;
 }
 
-nav {
-  text-align: left;
+header {
+  text-align: center;
   font-family: 'Permanent Marker', cursive;
+  font-size: 30px;
+  height: 150px;
+}
+
+nav {
+  text-align: center;
+  font-family: 'Permanent Marker', cursive;
+  margin-bottom: 20px;
 }
 
 h1 {
@@ -16,13 +24,14 @@ h1 {
 
 h1:nth-child(2) {
   margin-left: 158px;
+  text-align: left;
 }
 
 main {
   background-color: #abd0d5;
-  margin-top: 30px;
   text-align: center;
-  height: 535px;
+  height: 435px;
+  padding-top: 50px;
 
 }
 
@@ -30,15 +39,16 @@ div {
   background-color: #abd0d5;
   border-bottom: 10px solid #5cb1bc;
   border-right: 10px solid #5cb1bc;
-  height: 150px;
+  height: 100px;
   width: 150px;
   display: inline-block;
   color: grey;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 80px;
   padding: 10px;
   vertical-align: top;
   font-family: 'Pangolin', cursive;
+  color: black;
 }
 
 div:nth-child(3) , div:nth-child(7), div:nth-child(11) {
@@ -56,9 +66,17 @@ footer {
 }
 
 button {
-  padding: 10px;
+  background-color: black;
+  color: white;
+  font-family: 'Permanent Marker', cursive;
+  width: 130px;
+  padding: 20px;
   font-size: 20px;
-  margin: 10px;
+  margin: 15px;
+  margin-top: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  font-size: 25px;
 }
 
 .playing {
@@ -75,4 +93,9 @@ button {
 
 .disColor {
   background-color: #abd0d5;
+}
+
+.disabledButton {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
