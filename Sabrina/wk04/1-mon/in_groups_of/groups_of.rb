@@ -20,27 +20,23 @@ enter group size:
 =end
 
 print "Enter a list: "
-list_array = gets.chomp,split(', ')
-# list_array = "bart, lisa, homer, maggie"
+list_array = gets.chomp.split(', ')
 print "Enter group size: "
 group_size = gets.chomp.to_i
-puts list_array
 
 counter = 0
 new_array = []
 
 if list_array.length % group_size != 0
-  length = (list_array.split(', ').length / group_size).truncate
+  length = (list_array.length / group_size).truncate
 else
-  length = list_array.split(', ').length / group_size
+  length = list_array.length / group_size
 end
-puts length
 
 length.times do
-  new_array.push (list_array.split(', ').slice(counter, counter + group_size))
+  new_array.push (list_array.slice(counter, counter + group_size))
   counter = counter + group_size
   puts counter
-  puts new_array
 end
 
-puts new_array
+print "#{new_array} \n"
