@@ -31,24 +31,50 @@ Do each of the following with your data structure:
 
 require 'pry'
 
-poke_cards = [['Pikachu', 40], ['Rattata', 20], ['Pidgeot', 60], ['Alkazam', 80], ['Butterfree', 30], ['Gengar', 70], ['Moltres', 100], ['Vulpix', 40], ['Blastoise', 80], ['Hitmonchan', 50]]
-reversed_cards = []
-split_array = []
-alfred_pile = []
-peter_pile = []
+# poke_cards = [['Pikachu', 40], ['Rattata', 20], ['Pidgeot', 60], ['Alkazam', 80], ['Butterfree', 30], ['Gengar', 70], ['Moltres', 100], ['Vulpix', 40], ['Blastoise', 80], ['Hitmonchan', 50]]
 
+cards = [
+{:name => "Pikachu", :attack => 40},
+{:name => "Rattata", :attack => 20},
+{:name => "Pidgeot", :attack => 60},
+{:name => "Alakazam", :attack => 80},
+{:name => "Butterfree", :attack => 30},
+{:name => "Gengar", :attack => 70},
+{:name => "Moltres", :attack => 100},
+{:name => "Vulpix", :attack => 40},
+{:name => "Blastoise", :attack => 80},
+{:name => "Hotmonchan", :attack => 50}]
+
+# alfred_pile =[]
+# petter_pile =[]
+#
+# split_array = cards.reverse.each_slice(3).to_a
+#
+# alfred_pile = split_array.shift
+# peter_pile = split_array.shift
+#
+# if [0, 1].sample == 0
+#   alfred_pile.push(split_array.shift).flatten!
+#   peter_pile.push(split_array.shift).flatten!
+# else
+#   peter_pile.push(split_array.shift).flatten!
+#   alfred_pile.push(split_array.shift).flatten!
+# end
+
+groups = cards.reverse.each_slice(3).to_a
+players = { alfred: groups.shift, peter: groups.shift}
+
+# winner = if rand(0..1) == 0
+#   :alfred
+# else
+#   :peter
+# end
+winner = rand(0..1) == 0 ? :alfred : :peter
+loser = winner == :alfred  ? :peter : :alfred
+
+players[winner].push(split_array.shift).flatten!
+players[loser].push(split_array.shift).flatten!
+
+print ("#{alfred_pile} \n")
+print ("#{peter_pile} \n")
 # binding.pry
-# def reverse_cards
-  reversed_cards = poke_cards.reverse
-  print "#{reversed_cards} \n"
-# end
-
-# def split_cards
-  split_array = reversed_cards.each_slice(3).to_a
-  print "#{split_array} \n"
-  alfred_pile.push split_array[0]
-  peter_pile.push split_array[1]
-# end
-
-# reverse_cards
-# split_cards
