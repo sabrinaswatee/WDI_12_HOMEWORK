@@ -24,19 +24,16 @@ list_array = gets.chomp.split(', ')
 print "Enter group size: "
 group_size = gets.chomp.to_i
 
-counter = 0
+length = list_array.length
 new_array = []
 
 if list_array.length % group_size != 0
-  length = (list_array.length / group_size).truncate
+  new_array = list_array.each_slice(group_size).to_a
+  last = new_array.pop
+  second_last = new_array.pop
+  new_array.push (second_last + last)
 else
-  length = list_array.length / group_size
-end
-
-length.times do
-  new_array.push (list_array.slice(counter, counter + group_size))
-  counter = counter + group_size
-  puts counter
+  new_array = list_array.each_slice(group_size).to_a
 end
 
 print "#{new_array} \n"
