@@ -1,18 +1,23 @@
+require 'pry'
 
-class Monkey
+class Animal
 
-  def initialize(input_name, input_species)
+@@animal_list = [
+  {name: 'Dog', age: 2, gender: 'F', species: 'Poodle', toys: []}
+]
+
+  def initialize(input_name, input_age, input_gender, input_species, input_toys)
     @name = input_name.capitalize
+    @age = input_age
+    @gender = input_gender.capitalize
     @species = input_species.capitalize
-    @food_eaten = []
+    @toys = input_toys.split(', ')
   end
 
-  def eat(input_food)
-    @food_eaten.push input_food
-  end
-
-  def introduce
-    puts "Hi my name is #{@name}. I am a #{@species}. I had #{@food_eaten.join(' and ')} for brunch"
-  end
+  # def store
+  #   @@animal_list.push animal
+  # end
 
 end
+
+binding.pry
