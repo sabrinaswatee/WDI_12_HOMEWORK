@@ -12,6 +12,7 @@ get '/movie_list' do
   name = params[:title]
   @list = HTTParty.get("http://www.omdbapi.com/?s=#{name}&apikey=2f6435d9").parsed_response["Search"]
   if (@list.length == 1)
+    @list = HTTParty.get("http://www.omdbapi.com/?t=#{name}&apikey=2f6435d9")
     erb :movie_details
   else
     erb :movie_list
