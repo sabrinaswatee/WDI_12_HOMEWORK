@@ -4,10 +4,10 @@ var $list = $('ul');
 
 $btn.on ('click', function (event) {
 
-  event.preventDefault ();
+  event.preventDefault (); // allows output to stay in console
 
   var name = $input.val();
-  var key = ENV['OMDB_API_KEY'];
+  var key = '2f6435d9';
   var settings = {
     url: 'http://omdbapi.com/',
     data: { s: name, apiKey: key}
