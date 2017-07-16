@@ -13,8 +13,8 @@ $btn.on ('click', function (event) {
 
         var source = $('#giffy-result-template').html();
         var template = Handlebars.compile(source);
-        var html = template({ url: giffy.url});
-        console.log (giffy.url);
+        var html = template({ url: giffy.images.original_still.url});
+        // console.log (giffy.url);
         $('.response').append( html );
 
       });
