@@ -1,0 +1,23 @@
+<h1>Magic 8 Ball</h1>
+
+<form action="#answer">
+
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label for="question">Type your question here</label>
+  <input type="text" name="question" id="question">
+  <button>Ask</button>
+
+</form>
+
+<% if @question %>
+  <div id="answer">
+
+    <h1>Question: <span style="font-size:15px;"><%= @question %></span><br>Answer: <span style="font-size:15px;"><%= @answer %></span></h1>
+
+  </div>
+<% end %>
+
+<form action="/games">
+  <button >Back to Home Page</button>
+</form>

@@ -1,0 +1,20 @@
+<h1>Rock Paper Scissors</h1>
+
+<h2>Computers throw: <span class="compThrow" style="color: red;">Hidden</span></h2>
+<h2>Make your throw: <span class="yourThrow">Rock, Paper or Scissors</span></h2>
+
+<form action="#response">
+  <label for="throw"></label>
+  <input type="text" name="throw" id="throw">
+  <button>Submit</button>
+</form>
+
+<% if @throw %>
+  <div id="response">
+    <h1><%= @response %></h1>
+  </div>
+<% end %>
+
+<form action="/games">
+  <button >Back to Home Page</button>
+</form>

@@ -1,0 +1,51 @@
+<h1><%= @article.title %></h1>
+
+<%= @article.process_article %>
+
+<div style="width: 400px;">
+  <canvas id="chart" width="400" height="400"></canvas>
+</div>
+
+<%= form_tag "/articles/#{@article.id}", method: 'get' do %>
+  <button>Load Comments</button>
+<% end %>
+
+<div class="comments"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"></script>
+<script>
+
+  var $btn = $('button');
+  var div = document.querySelector ('.comments');
+  var ctx = document.getElementById('chart').getContext('2d');
+
+  $.ajax({
+    url: '/api/articles/<%= @article.id %>'
+  }).done(function(article){
+
+    new Chart(ctx, {
+      data: {
+        datasets: [{ data: Object.values(article.histogram) }],
+        labels: Object.keys(article.histogram)
+      },
+      type: 'polarArea'
+    });
+  });
+
+  $btn.on("click", function() {
+    event.preventDefault();
+
+    $.ajax({
+      url: '/api/comments/<%= @article.id %>'
+    }).done(function(comments){
+
+      comments.forEach(function(comment) {
+        var newItem = document.createElement ('p');
+        newItem.textContent = comment.feedback;
+        div.appendChild (newItem);
+      });
+    });
+  });
+
+</script>
