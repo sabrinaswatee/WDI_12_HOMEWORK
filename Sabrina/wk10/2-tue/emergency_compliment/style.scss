@@ -1,0 +1,15 @@
+$mainBackground: mistyrose;
+$superBright: green;
+
+body {
+  background: linear-gradient(135deg, red, blue);
+}
+
+.title {
+  color: $superBright;
+  user-select: none;
+
+  span {
+    color: orange;
+  }
+}

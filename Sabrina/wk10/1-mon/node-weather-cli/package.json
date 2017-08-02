@@ -1,0 +1,15 @@
+{
+  "name": "node-cli-weather",
+  "version": "1.0.0",
+  "description": "$ git clone https://github.com/ga-dc/node-cli-weather     $ cd node-cli-weather     $ npm install",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "request": "^2.81.0"
+  }
+}
