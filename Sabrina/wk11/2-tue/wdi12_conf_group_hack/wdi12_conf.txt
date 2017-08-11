@@ -1,0 +1,16 @@
+/*
+WDIConf group hack
+
+problem statement
+Student feedback and in class observation has revealed a mild disapproval for
+the random student selection process during presentations.
+
+Either by volunteering right before the randomise algorithm have finish running
+or by a direct verbal attack at the randomise algorithm itself.
+
+The size of the class since its inception has shown a steady decrease to the
+point that we think democrazy will work as an option for picking on students.
+
+We need a solution where each member of the class will have 2 votes each to
+determine the presenting order for talks at WDIConf.
+*/

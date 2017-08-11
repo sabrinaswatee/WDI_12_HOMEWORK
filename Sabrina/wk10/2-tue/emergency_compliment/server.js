@@ -2,6 +2,7 @@ var _ = require('lodash');
 var bodyParser = require('body-parser');
 var app = require('express')();
 const PORT = 5000;
+var complimentsController = require('./controllers/complimentsController')
 
 var compliments = [
   "Your instructors love you",
@@ -25,11 +26,13 @@ app.get('/:name', function(req, res) {
   res.render('personal', { name: req.params.name, compliment: _.sample(compliments), color: _.sample(colors) });
 });
 
-app.post('/new', function(req, res) {
-  console.log(req.body.new_compliment);
-  compliments.push(req.body.new_compliment);
-  res.redirect('/');
-});
+// app.post('/new', function(req, res) {
+//   console.log(req.body.new_compliment);
+//   compliments.push(req.body.new_compliment);
+//   res.redirect('/');
+// });
+
+app.post('/new', complimentsController.new);
 
 app.listen(PORT, function() {
   console.log('Listening on port ' + PORT);
